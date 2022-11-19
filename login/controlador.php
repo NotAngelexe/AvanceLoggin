@@ -1,5 +1,6 @@
 <!--------------Valida el login e ingresa---------------------------->
 <?php
+#session_start();
     if(!empty($_POST['btn-ingresar'])){
         if(empty($_POST['usuario']) && empty($_POST['pass'])){
          echo "<div class='alert alert-warning' role='alert'>
@@ -22,13 +23,19 @@
                 }
                 #redireccionamos a inicio
                 echo "usuario correcto";
-
-                $_SESSION['usuario']=$usuario;  
+                $_SESSION['usuario']=$usuario;
+                $_SESSION['intentosLogin']=0;  
 
             }else{
+                $_SESSION['intentosLogin']=$_SESSION['intentosLogin']+1;
                 echo "<div class='alert alert-danger' role='alert'>
-                    Ingresa correctamente tus datos
+                    Ingresa correctamente tus datos"
+                    .$_SESSION['intentosLogin']."
                     </div>";
+                    if($_SESSION['intentosLogin']==1){
+                        echo "<a href='cambiarcontra.php'> cambiar contrasena</a>";
+                    }
+                   
             }
         }
     }

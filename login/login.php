@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $_SESSION['intentosLogin']=0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +63,7 @@
                             <p class="small fw-bold mt-2 pt-1 mb-0">No tienes cuenta? <a href="register.php" class="link-danger">Registrate</a></p>
                             <p class="small fw-bold mt-2 pt-1 mb-0">Olvido su contraseña <a href="#" class="link-prymary">Recuperar</a></p>
                         </div>
-                        
+                        <p> <?php echo $_SESSION['intentosLogin'] ?></p>
                     </form>
                 </div>
             </div>
