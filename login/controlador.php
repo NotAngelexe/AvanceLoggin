@@ -11,7 +11,10 @@
             $usuario=$_POST['usuario'];
             $pass=$_POST['pass'];
             $passcifrada=md5($pass);
-            #veridficamos que la cuenta no este bloqueada
+         #verificamos si existe la cuenta
+         $sql=$conexion->query("select * from user where nombreUsuario='$usuario'");
+         if($datos=$sql->fetch_object()){ # si el usuario no esta bloqueado
+                  #veridficamos que la cuenta no este bloqueada
             $sql=$conexion->query("select * from user where nombreUsuario='$usuario' and estado=1" );
             if($datos=$sql->fetch_object()){ # si el usuario no esta bloqueado
                 $sql=$conexion->query("select * from user where nombreUsuario='$usuario' and contrasena='$passcifrada' and estado=1" );
@@ -47,9 +50,15 @@
                 }
             }else{  #si la cuenta esta bloqueada muestra este mensaje
                 echo "<div class='alert alert-warning' role='alert'>
-                        Esta cuenta esta bloqueada, es necesario que cambies de contraseña
+                        La cuenta esta bloqueada
                       </div>";
             }     
+         }else{
+            echo "<div class='alert alert-warning' role='alert'>
+            Esta cuenta no existe
+          </div>";
+         }
+
         }
 ?>
 <script>
