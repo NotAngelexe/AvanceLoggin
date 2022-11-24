@@ -9,8 +9,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/main.css" />
-    <link rel="icon" type="image/jpg" href="../media/logo.png"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Login</title>
 </head>
@@ -29,24 +27,22 @@
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
                 <!------------FORMULARIO----------------->
-                    <form action="#" method="POST">
-
+                    <form action="#" method="post" name="loginn" id="loginn">
+                    <div id="checklogin">
+        
+                    </div>
                         <div class="divider d-flex align-items-center my-4">
                             <h3 class="text-center fw-bold mx-3 mb-0">Bienvenido</h3>
                         </div>
-                        <!---------Mensaje extra------------->
-                        <?php include("conexion.php");?>
-                        <?php include("controlador.php");?>
-
                         <!-- Ususario -->
                         <div class="form-outline mb-4">
-                            <input type="text" name="usuario" class="form-control form-control-lg" placeholder="Introduce tu nombre usuario" value="<?php if (isset($_COOKIE["name"])) {echo $_COOKIE["name"];} ?>" required/>
+                            <input type="text" id="usuario" name="usuario" class="form-control form-control-lg" placeholder="Introduce tu nombre usuario" value="<?php if (isset($_COOKIE["name"])) {echo $_COOKIE["name"];} ?>" required/>
                             <label class="form-label" for="form3Example3">Nombre de usuario</label>
                         </div>
 
                         <!-- Password -->
                         <div class="form-outline mb-3">
-                            <input type="password" name="pass" class="form-control form-control-lg" placeholder="Introduce tu contraseña" value="<?php if (isset($_COOKIE["pass"])) {echo $_COOKIE["pass"];} ?>" required/>
+                            <input type="password" id="pass" name="pass" class="form-control form-control-lg" placeholder="Introduce tu contraseña" value="<?php if (isset($_COOKIE["pass"])) {echo $_COOKIE["pass"];} ?>" required/>
                             <label class="form-label" for="form3Example4">Contraseña</label>
                         </div>
 
@@ -61,7 +57,7 @@
 
                             </div>
                             <p class="small fw-bold mt-2 pt-1 mb-0">No tienes cuenta? <a href="register.php" class="link-danger">Registrate</a></p>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Olvido su contraseña <a href="#" class="link-prymary">Recuperar</a></p>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Olvido su contraseña <a href="cambiarcontra.php" class="link-prymary">Recuperar</a></p>
                         </div>
                         <p> <?php echo $_SESSION['intentosLogin'] ?></p>
                     </form>
@@ -76,7 +72,8 @@
         </div>
 
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="app2.js"></script>
 </body>
 
 </html>

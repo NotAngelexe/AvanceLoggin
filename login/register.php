@@ -10,7 +10,6 @@
     
 <form style="width: 50%; margin-left: 25%" method="post" action="#">
 <?php include("conexion.php");?>
-<?php include("verificacionRegister.php");?>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nombre completo</label>
             <input required type="text" name="fullname"  class="form-control" aria-describedby="emailHelp" required>
@@ -26,6 +25,9 @@
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
             <input required type="password" type="password" name="password" class="form-control" required>
+            <label for="exampleInputPassword1" class="form-label">Confirma la contraseña </label>
+            <input required type="password" type="password" name="password1" class="form-control" required>
+            <?php include("verificacionRegister.php");?>
         </div>
         <button type="submit" class="btn btn-primary" name="reg_user">Registrarse</button>
     </form>

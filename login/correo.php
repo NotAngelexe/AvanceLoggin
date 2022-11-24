@@ -53,10 +53,21 @@ try {
     
     echo 'El correo electronico se ha mandado';
     
+    #desbloqueamos cuenta
+    $sql=$conexion->query("UPDATE user
+    SET estado = 1
+    WHERE nombreCompleto ='".$_POST['nombre']."' and correo='".$_POST['email']."'");
+    echo "Cuenta desbloqueada";
+
+    #cambiamos password
     $sql=$conexion->query("UPDATE user
     SET contrasena = '".md5($captcha)."'
-    WHERE nombreusuario ='".$_SESSION['usuario']."'");
+    WHERE nombreCompleto ='".$_POST['nombre']."' and correo='".$_POST['email']."'");
     echo "modificado correctamente";
+
+    echo "<script type='text/javascript'>
+                            window.location.href = 'login.php';
+                        </script>";
     
 } catch (Exception $e) {
     echo $mail->ErrorInfo;
