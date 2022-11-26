@@ -1,8 +1,8 @@
 <?php
 session_start();
 $_SESSION['intentosLogin'] = 0;
-$_SESSION["name"]="Angel";
-$_SESSION["pass"]="";
+$_SESSION["name"] = "Angel";
+$_SESSION["pass"] = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,18 +11,17 @@ $_SESSION["pass"]="";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="icon" type="image/jpg" href="../media/logo.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
     <title>Login</title>
 </head>
 
 <body>
-    <div
-        class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
         <!-- Copyright -->
         <div class="text-white mb-3 mb-md-0">
         </div>
@@ -47,20 +46,18 @@ $_SESSION["pass"]="";
                         <!-- Ususario -->
                         <div class="form-outline mb-4">
                             <input type="text" name="usuario" class="form-control form-control-lg"
-                                placeholder="Introduce tu nombre usuario"
-                                value="<?php if (isset($_SESSION["name"])) {
-                                echo $_SESSION["name"];
-                            } ?>" required />
+                                placeholder="Introduce tu nombre usuario" value="<?php if (isset($_SESSION["name"])) {
+                                    echo $_SESSION["name"];
+                                } ?>" required />
                             <label class="form-label" for="form3Example3">Nombre de usuario</label>
                         </div>
 
                         <!-- Password -->
                         <div class="form-outline mb-3">
                             <input type="password" name="pass" class="form-control form-control-lg"
-                                placeholder="Introduce tu contraseña"
-                                value="<?php if (isset($_SESSION["pass"])) {
-                                echo $_SESSION["pass"];
-                            } ?>" required />
+                                placeholder="Introduce tu contraseña" value="<?php if (isset($_SESSION["pass"])) {
+                                    echo $_SESSION["pass"];
+                                } ?>" required />
                             <label class="form-label" for="form3Example4">Contraseña</label>
                         </div>
 
@@ -68,31 +65,15 @@ $_SESSION["pass"]="";
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="recordar"
                                 checked>
                             <label class="form-check-label" for="flexSwitchCheckChecked">Guardar cookies</label>
-                            <?php 
-                            setcookie($_SESSION["name"],$_SESSION["pass"]);
+                            <?php
+                            setcookie($_SESSION["name"], $_SESSION["pass"]);
                             ?>
                         </div>
-
-                        <div class="wrapper">
-                            <div class="captcha-area">
-                                <div class="captcha-img">
-                                    <img src="captcha-bg.gif" alt="Captch Background">
-                                    <span class="captcha"></span>
-                                </div>
-                                <button class="reload-btn"><i class="fas fa-redo-alt"></i></button>
-                            </div>
-                            <form action="#" class="input-area">
-                                <input type="text" placeholder="Enter captcha" maxlength="6" spellcheck="false"
-                                    required>
-                                <button class="check-btn">Check</button>
-                            </form>
-                            <div class="status-text"></div>
-                        </div>
-
                         <div class=" d-flex  text-center text-lg-start mt-4 pt-2 flex-row justify-content-between">
                             <div style="margin-right:20px">
                                 <button type="submit" name="btn-ingresar" value="enviar" class="btn btn-primary btn-lg"
-                                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button>
+                                    id="btn" style="padding-left: 2.5rem; padding-right: 2.5rem;"
+                                    disabled>Ingresar</button>
                             </div>
                             <br>
                             <p class="small fw-bold mt-2 pt-1 mb-0">No tienes cuenta? <a href="register.php"
@@ -108,19 +89,35 @@ $_SESSION["pass"]="";
                 </div>
             </div>
         </div>
-        <div
-            class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-            <!-- Copyright -->
-            <div class="text-white mb-3 mb-md-0">
+        <div class="wrapper" style="">
+            <div class="captcha-area">
+                <div class="captcha-img">
+                    <img src="captcha-bg.gif" alt="Captch Background">
+                    <span class="captcha"></span>
+                </div>
+                <button class="reload-btn"><i class="fas fa-redo-alt"></i></button>
             </div>
-            <!-- Copyright -->
+            <form action="#" class="input-area">
+                <input type="text" placeholder="Enter captcha" maxlength="6" spellcheck="false" required>
+                <button class="check-btn">Check</button>
+            </form>
+            <div class="status-text">
+
+            </div>
+        </div>
+        </div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5
+        bg-primary">
+        <!-- Copyright -->
+        <div class="text-white mb-3 mb-md-0">
+        </div>
+        <!-- Copyright -->
         </div>
 
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

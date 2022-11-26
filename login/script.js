@@ -25,6 +25,7 @@ checkBtn.addEventListener("click", e => { e.preventDefault();
   statusTxt.style.display = "block";
   let inputVal = inputField.value.split('').join(' ');
   if (inputVal == captcha.innerText) { //Si coincide
+    document.getElementById("btn").disabled=false;
     alert("Next papu");
     statusTxt.style.color = "#4db2ec";
     statusTxt.innerText = "No eres un robot xd";
