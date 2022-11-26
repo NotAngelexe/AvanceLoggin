@@ -14,7 +14,6 @@
  <!-------------------------FORMULARIO PARA EL CONTACTO-------------------------------->
  <div class="for">
     <br>
-
     <form style="width: 50%; margin-left: 25%" action="correo.php" method="post">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nombre Completo</label>

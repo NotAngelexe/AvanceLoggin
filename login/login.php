@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION['intentosLogin'] = 0;
-$_SESSION["name"] = "Angel";
+$_SESSION["name"] = "";
 $_SESSION["pass"] = "";
 ?>
 <!DOCTYPE html>
@@ -65,9 +65,6 @@ $_SESSION["pass"] = "";
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="recordar"
                                 checked>
                             <label class="form-check-label" for="flexSwitchCheckChecked">Guardar cookies</label>
-                            <?php
-                            setcookie($_SESSION["name"], $_SESSION["pass"]);
-                            ?>
                         </div>
                         <div class=" d-flex  text-center text-lg-start mt-4 pt-2 flex-row justify-content-between">
                             <div style="margin-right:20px">
@@ -79,16 +76,27 @@ $_SESSION["pass"] = "";
                             <p class="small fw-bold mt-2 pt-1 mb-0">No tienes cuenta? <a href="register.php"
                                     class="link-danger">Registrate</a></p>
                             <br>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Olvido su contraseña <a href="#"
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Olvido su contraseña <a href="cambiarcontra.php"
                                     class="link-prymary">Recuperar</a></p>
                         </div>
-                        <p>
-                            <?php echo $_SESSION['intentosLogin'] ?>
-                        </p>
                     </form>
                 </div>
             </div>
         </div>
+        <?php
+                            if(isset($_POST['btn-ingresar'])){
+                                $usuario="";
+                                $contrasena="";
+
+                                $usuario= $_POST["usuario"];
+                                $contrasena= $_POST["pass"];
+
+                                $_SESSION["name"]=$usuario;
+                                $_SESSION["pass"]=$pass;
+                    
+                                setcookie($_SESSION["usuario"], $_SESSION["pass"]);
+                            }
+                            ?>
         <div class="wrapper" style="">
             <div class="captcha-area">
                 <div class="captcha-img">
