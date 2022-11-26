@@ -1,6 +1,8 @@
 <?php
 session_start();
 $_SESSION['intentosLogin'] = 0;
+$_SESSION["name"]="Angel";
+$_SESSION["pass"]="";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +48,8 @@ $_SESSION['intentosLogin'] = 0;
                         <div class="form-outline mb-4">
                             <input type="text" name="usuario" class="form-control form-control-lg"
                                 placeholder="Introduce tu nombre usuario"
-                                value="<?php if (isset($_COOKIE["name"])) {
-                                echo $_COOKIE["name"];
+                                value="<?php if (isset($_SESSION["name"])) {
+                                echo $_SESSION["name"];
                             } ?>" required />
                             <label class="form-label" for="form3Example3">Nombre de usuario</label>
                         </div>
@@ -56,8 +58,8 @@ $_SESSION['intentosLogin'] = 0;
                         <div class="form-outline mb-3">
                             <input type="password" name="pass" class="form-control form-control-lg"
                                 placeholder="Introduce tu contraseña"
-                                value="<?php if (isset($_COOKIE["pass"])) {
-                                echo $_COOKIE["pass"];
+                                value="<?php if (isset($_SESSION["pass"])) {
+                                echo $_SESSION["pass"];
                             } ?>" required />
                             <label class="form-label" for="form3Example4">Contraseña</label>
                         </div>
@@ -66,6 +68,9 @@ $_SESSION['intentosLogin'] = 0;
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="recordar"
                                 checked>
                             <label class="form-check-label" for="flexSwitchCheckChecked">Guardar cookies</label>
+                            <?php 
+                            setcookie($_SESSION["name"],$_SESSION["pass"]);
+                            ?>
                         </div>
 
                         <div class="wrapper">
