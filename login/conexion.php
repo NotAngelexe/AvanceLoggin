@@ -1,9 +1,9 @@
 <?php
 ###Conexion a la base de datos
- $servidor='localhost:33065';
+ $servidor='localhost:3306';
  $cuenta='root';
  $password='';
- $bd='usuario';
+ $bd='usuarios';
   
  //conexion a la base de datos
  $conexion = new mysqli($servidor,$cuenta,$password,$bd);
