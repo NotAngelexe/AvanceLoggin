@@ -39,9 +39,6 @@ $_SESSION["pass"] = "";
                         <div class="divider d-flex align-items-center my-4">
                             <h3 class="text-center fw-bold mx-3 mb-0">Bienvenido</h3>
                         </div>
-                        <!---------Mensaje extra------------->
-                        <?php include("conexion.php"); ?>
-                        <?php include("controlador.php"); ?>
 
                         <!-- Ususario -->
                         <div class="form-outline mb-4">
@@ -126,6 +123,8 @@ $_SESSION["pass"] = "";
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="app2.js"></script>
 </body>
 
 </html>
