@@ -23,8 +23,8 @@
 
     <form style="width: 50%; margin-left: 25%" action="correo.php" method="post" id="changepass" name="changepass">
       <div class="mb-3">
+        <h4 class="text-primary">Para recuperar tu cuenta ingresa los datos con los que te registraste</h4>
         <div id="check">
-        
         </div>
         <label for="exampleInputEmail1" class="form-label">Nombre Completo</label>
         <input   required name="nombre" type="text" class="form-control" id="nombre" aria-describedby="emailHelp">
@@ -37,7 +37,6 @@
     </form>
     <br>
   </div>
-
  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
  <script src="app.js"> </script>
 

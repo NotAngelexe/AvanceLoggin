@@ -20,26 +20,29 @@
                 $sql=$conexion->query("select * from user where nombreUsuario='$usuario' and contrasena='$passcifrada' and estado=1" );
                             #verificamos las pass
                 if($datos=$sql->fetch_object()){ # si el usuario y pass son correctos
-                    if(!empty($_POST["recordar"])){     #cookies fijadas
-                        setcookie("name",$usuario,time()+3600);
-                        setcookie("pass",$pass,time()+3600);
-                    }else{                              #cookies no fijadas
-                        setcookie("name","");
-                        setcookie("pass","");
-                    }
                     #redireccionamos a inicio
                     echo "usuario correcto";
-                    $_SESSION['usuario']=$usuario;  
+                    $_SESSION['usuario']=$usuario;
+                    echo "<script>  
+        document.loginn.submit(); 
+        </script> ";  
 
                 }else{ #contador para bloquear la cuenta
                     $_SESSION['intentosLogin']=$_SESSION['intentosLogin']+1;
-                    if($_SESSION['intentosLogin']<2){
+
+                    if($_SESSION['intentosLogin']==1){
                     echo "<div class='alert alert-danger' role='alert'>
-                        Ingresa correctamente tus datos, si vuelves a fallar te vamos a bloquear"
+                        Ingresa correctamente tus datos"
                         .$_SESSION['intentosLogin']."
                         </div>";
                     }
-                        if($_SESSION['intentosLogin']==2){
+                    if($_SESSION['intentosLogin']==2){
+                        $sql=$conexion->query("UPDATE user set estado=0 where nombreUsuario='$usuario'" );
+                        echo "<div class='alert alert-warning' role='alert'>
+                                Solo te queda un intento, si fallas tu cuenta se bloqueara
+                            ";
+                    }
+                        if($_SESSION['intentosLogin']==3){
                             $sql=$conexion->query("UPDATE user set estado=0 where nombreUsuario='$usuario'" );
                             echo "<div class='alert alert-warning' role='alert'>
                                     Tu cuenta ha sido bloqueada
@@ -49,8 +52,9 @@
                     
                 }
             }else{  #si la cuenta esta bloqueada muestra este mensaje
-                echo "<div class='alert alert-warning' role='alert'>
+                echo "<div class='alert alert-danger' role='alert'>
                         La cuenta esta bloqueada
+                        <a href='cambiarcontra.php'> recuperar cuenta </a>
                       </div>";
             }     
          }else{
